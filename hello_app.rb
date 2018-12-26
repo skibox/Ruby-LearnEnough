@@ -14,5 +14,9 @@ get '/date' do
 end
 
 get '/dupa8' do
-  "Hello, world! Happy #{day_of_the_week(Time.now)}}."
+  "Hello, world! Happy #{day_of_the_week(Time.now)} - from the file"
+end
+
+get '/greeting' do 
+  greeting(Time.now)
 end
