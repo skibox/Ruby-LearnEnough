@@ -1,5 +1,5 @@
 require 'sinatra'
-require 'date'
+require './day.rb'
 
 get '/' do
 	DAYNAMES = ["Sunday", "Monday", "Tuesday", "Wednesday",
@@ -11,4 +11,8 @@ end
 get '/date' do
   dayname = Date::DAYNAMES[Time.now.wday]
   "Hello, world! Happy #{dayname}."
+end
+
+get '/dupa8' do
+  "Hello, world! Happy #{day_of_the_week(Time.now)}}."
 end
