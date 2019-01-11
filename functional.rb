@@ -58,3 +58,42 @@ end
 
 p dakotas_include(states)
 p dakotas_regex(states)
+
+numbers = 1..10
+
+def imperative_sum(numbers)
+  total = 0
+  numbers.each { |n| total += n }
+  total
+end
+
+def functional_sum(numbers)
+  numbers.reduce { |total, n| total + n }
+end
+
+p imperative_sum(numbers)
+p functional_sum(numbers)
+
+def imperative_lengths(states)
+  lengths = {}
+  states.each do |state|
+    lengths[state] = state.length
+  end
+  lengths
+end
+
+def functional_lengths(states)
+  states.reduce({}) do |lengths, state|
+    lengths[state] = state.length
+    lengths
+  end
+end
+
+p imperative_lengths(states)
+p functional_lengths(states)
+
+def product_of(numbers)
+  numbers.reduce(:*)
+end
+
+p product_of(numbers)
