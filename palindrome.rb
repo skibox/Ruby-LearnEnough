@@ -4,28 +4,24 @@ def email_parts(email)
   email.downcase.split('@')
 end
 
-class String
-  def processor(string)
-    downcase
-  end
-
+module Palindrome
   def palindrome?
-    content_downcase == content_downcase.reverse
-  end
-
-  def louder
-    upcase
-  end
-  
-  def blank?
-    strip.length.zero?
+    processed_content == processed_content.reverse
   end
 
   private
 
-  def content_downcase
-    processor(self)
+  def processed_content
+    to_s.downcase
   end
+end
+
+
+class String
+  include Palindrome
+end
+class Integer
+  include Palindrome
 end
 
 class TranslatedPhrase < String
